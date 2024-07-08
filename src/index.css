@@ -7,20 +7,21 @@
 }
 
 :root {
-  --clr-white: #FFFFFF;
+  --clr-white: #ffffff;
   --clr-black: #000000;
   --clr-grey: #707070;
   --clr-bunker: #131921;
   --clr-ebony-clay: #232f3e;
-  --clr-orange: #FF9900;
+  --clr-orange: #ff9900;
   --clr-orange-dark: #cc8111;
 }
 
 body {
   margin: 0;
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: auto;
 }
 
 h2 {
@@ -58,7 +59,7 @@ nav {
 
 .nav__brand h1 {
   color: var(--clr-white);
-  font-family: "Lalezar";
+  font-family: 'Lalezar';
   font-size: 2.5em;
 }
 
@@ -109,7 +110,7 @@ nav {
   border: none;
   border-radius: 4px;
 
-  font-family: "Lalezar";
+  font-family: 'Lalezar';
   font-size: 1.25em;
   font-weight: 600;
 
@@ -152,10 +153,13 @@ nav {
   position: relative;
 
   transition: all 250ms ease;
+  filter: drop-shadow(5px, 10px, 15px, black);
+  border: 2px solid black;
 }
 
 .card:hover {
-  box-shadow: 0 0 5px var(--clr-grey);
+  box-shadow: 10px 15px 20px var(--clr-grey);
+  /* filter: drop-shadow(7px, 10px, 12px, black); */
 }
 
 .card__image {
@@ -172,6 +176,8 @@ nav {
   width: 100%;
 
   background-color: var(--clr-white);
+  background-color: black;
+  color: white;
 
   padding: 5px 10px;
 
@@ -181,7 +187,7 @@ nav {
 }
 
 .card__info h4 {
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   font-size: 1.25em;
   font-weight: 400;
 }
@@ -192,7 +198,7 @@ nav {
 }
 
 .card__info p {
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   font-size: 0.95em;
   font-weight: 600;
   margin-top: 5px;
@@ -238,6 +244,7 @@ nav {
 
 .product__image img {
   max-width: 100%;
+  border: 3px solid black;
 }
 
 .product__close {
@@ -298,7 +305,7 @@ nav {
   border: none;
   border-radius: 24px;
 
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   font-size: 0.95em;
   font-weight: 600;
 

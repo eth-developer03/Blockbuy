@@ -5,6 +5,7 @@
       "name": "Camera",
       "category": "electronics",
       "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/camera.jpg",
+      "description": "High-definition digital camera for capturing moments.",
       "price": "1",
       "rating": 4,
       "stock": 10
@@ -14,6 +15,7 @@
       "name": "Drone",
       "category": "electronics",
       "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/drone.jpg",
+      "description": "Advanced drone with a high-resolution camera.",
       "price": "2",
       "rating": 5,
       "stock": 6
@@ -23,6 +25,7 @@
       "name": "Headset",
       "category": "electronics",
       "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/headset.jpg",
+      "description": "Comfortable headset with immersive sound quality.",
       "price": "0.25",
       "rating": 2,
       "stock": 24
@@ -32,6 +35,7 @@
       "name": "Shoes",
       "category": "clothing",
       "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/shoes.jpg",
+      "description": "Trendy and comfortable shoes for any occasion.",
       "price": "0.25",
       "rating": 5,
       "stock": 3
@@ -41,6 +45,7 @@
       "name": "Sunglasses",
       "category": "clothing",
       "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/sunglasses.jpg",
+      "description": "Stylish sunglasses with UV protection.",
       "price": "0.10",
       "rating": 4,
       "stock": 12
@@ -50,6 +55,7 @@
       "name": "Watch",
       "category": "clothing",
       "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/watch.jpg",
+      "description": "Elegant watch with modern features.",
       "price": "1.25",
       "rating": 4,
       "stock": 0
@@ -59,6 +65,7 @@
       "name": "Puzzle Cube",
       "category": "toys",
       "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/cube.jpg",
+      "description": "Classic puzzle cube for all ages.",
       "price": "0.05",
       "rating": 4,
       "stock": 15
@@ -68,6 +75,7 @@
       "name": "Train Set",
       "category": "toys",
       "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/train.jpg",
+      "description": "Fun train set for kids to enjoy.",
       "price": "0.20",
       "rating": 4,
       "stock": 0
@@ -77,6 +85,7 @@
       "name": "Robot Set",
       "category": "toys",
       "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/robots.jpg",
+      "description": "Interactive robot set for creative play.",
       "price": "0.15",
       "rating": 3,
       "stock": 12

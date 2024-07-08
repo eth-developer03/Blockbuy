@@ -67,10 +67,10 @@ contract Dappazon {
         Item memory item = items[_id];
 
         // Require enough ether to buy item
-        require(msg.value >= item.cost);
+        require(msg.value >= item.cost, "No Balance !");
 
         // Require item is in stock
-        require(item.stock > 0);
+        require(item.stock > 0, "Stock is unavailable !");
 
         // Create order
         Order memory order = Order(block.timestamp, item);
@@ -85,6 +85,12 @@ contract Dappazon {
         // Emit event
         emit Buy(msg.sender, orderCount[msg.sender], item.id);
     }
+
+    // fallback() external payable {
+    //     revert("Fallback function called"); //added by me
+    // }
+
+    // receive() external payable {}
 
     function withdraw() public onlyOwner {
         (bool success, ) = owner.call{value: address(this).balance}("");
