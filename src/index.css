@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Lalezar&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 
 * {
@@ -35,15 +38,22 @@ h2:not(.product__overview h2) {
   padding-left: 20px;
 }
 
-/* ------------------------------------------------------ */
-/* -- NAVIGATION -- */
+/*  NAVIGATION  */
 
 nav {
+  /* width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   align-items: center;
 
+  background-color: var(--clr-bunker); */
+
+  /* new */
+  display: flex;
+  align-items: center;
   background-color: var(--clr-bunker);
+  justify-content: space-evenly;
+  overflow-x: hidden;
 }
 
 .nav__brand {
@@ -66,7 +76,7 @@ nav {
 .nav__links {
   background-color: var(--clr-ebony-clay);
   grid-column: 1 / span 3;
-
+  width: 100vw;
   padding: 10px;
 
   display: flex;
@@ -92,7 +102,7 @@ nav {
 .nav__search {
   padding: 10px;
   border-radius: 6px;
-  min-width: 50%;
+  min-width: 30%;
 }
 
 .nav__search:hover {
@@ -122,8 +132,24 @@ nav {
   background-color: var(--clr-orange-dark);
 }
 
-/* ------------------------------------------------------ */
-/* -- CARDS -- */
+.nav_signup {
+  background-color: var(--clr-orange);
+  color: var(--clr-black);
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+
+  font-family: 'Lalezar';
+  font-size: 1.25em;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: all 250ms ease;
+  margin-left: 4rem;
+}
+
+/*  CARDS  */
 
 .cards__section {
   max-width: 1200px;
@@ -285,7 +311,9 @@ nav {
   max-width: 300px;
   height: 90%;
 
-  border: 1px solid var(--clr-grey);
+  border: 3px solid var(--clr-grey);
+
+  filter: drop-shadow(2px 3px 4px 6px var(--clr-grey));
   padding: 20px;
 }
 

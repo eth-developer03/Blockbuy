@@ -14,34 +14,40 @@ const Navigation = ({ account, setAccount }) => {
 
   const handleValue = (e) => {
     setvalue(e.target.value);
-    console.log('value', inputvalue);
+    // console.log('value', inputvalue);
   };
 
   return (
-    <nav>
-      <div className="nav__brand">
-        <h1>BlockBuy</h1>
-      </div>
-
-      <input
-        type="text"
-        className="nav__search"
-        value={inputvalue}
-        onChange={handleValue}
-      />
-      {/* <button style={{ padding: '2px', height: '3px', width: '2px' }}>
-        Login
-      </button> */}
-      {account ? (
-        <button type="button" className="nav__connect">
-          {account.slice(0, 6) + '...' + account.slice(38, 42)}
-        </button>
-      ) : (
-        <button type="button" className="nav__connect" onClick={connectHandler}>
-          Connect
-        </button>
-      )}
-
+    <>
+      <nav>
+        <div className="nav__brand">
+          <h1>BlockBuy</h1>
+        </div>
+        <div className="">
+          <input
+            type="text"
+            className="nav__search"
+            value={inputvalue}
+            onChange={handleValue}
+          />
+          {account ? (
+            <button type="button" className="nav__connect">
+              {account.slice(0, 6) + '...' + account.slice(38, 42)}
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="nav__connect"
+              onClick={connectHandler}
+            >
+              Connect
+            </button>
+          )}
+          <button className="nav_signup">SIGN UP</button>
+        </div>
+      </nav>
+      {/* <button className="nav_signup">SIGN UP</button> */}
+      {/* <div className="nav__links"> */}
       <ul className="nav__links">
         <li>
           <a href="#Accessories">Accessories</a>
@@ -53,7 +59,10 @@ const Navigation = ({ account, setAccount }) => {
           <a href="#Toys & Gaming">Toys & Gaming</a>
         </li>
       </ul>
-    </nav>
+
+      {/* </div> */}
+      {/* </nav> */}
+    </>
   );
 };
 

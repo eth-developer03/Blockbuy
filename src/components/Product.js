@@ -82,10 +82,10 @@ const Product = ({ item, provider, account, dappazon, togglePop }) => {
           </button>
 
           <p>
-            <small>Ships from</small> Dappazon
+            <small>Ships from</small> BlockBuy
           </p>
           <p>
-            <small>Sold by</small> Dappazon
+            <small>Sold by</small> BlockBuy
           </p>
 
           {order && (
