@@ -221,6 +221,8 @@ nav {
 .card__info .rating {
   color: yellow;
   margin: 5px 0;
+  display: flex;
+  gap: 1px;
 }
 
 .card__info p {
@@ -301,6 +303,7 @@ nav {
 .product__overview hr,
 .product__overview .rating {
   margin: 10px auto;
+  display: flex;
 }
 
 .product__overview ul {
