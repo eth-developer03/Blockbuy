@@ -1,7 +1,10 @@
 import { ethers } from 'ethers';
 import { useContext, useState } from 'react';
 import { ValueContext } from '../provider/SelectedItems';
+import LogIn from './LogIn';
+import { useNavigate } from 'react-router-dom';
 const Navigation = ({ account, setAccount }) => {
+  const navigator = useNavigate();
   const connectHandler = async () => {
     const accounts = await window.ethereum.request({
       method: 'eth_requestAccounts',
@@ -43,7 +46,14 @@ const Navigation = ({ account, setAccount }) => {
               Connect
             </button>
           )}
-          <button className="nav_signup">SIGN UP</button>
+          <button
+            className="nav_signup"
+            onClick={() => {
+              navigator('/login');
+            }}
+          >
+            SIGN UP
+          </button>
         </div>
       </nav>
       {/* <button className="nav_signup">SIGN UP</button> */}
