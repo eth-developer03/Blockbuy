@@ -7,7 +7,7 @@ const User = require('./models/User');
 const verify = require('./verify');
 
 const app = express();
-
+require('dotenv').config();
 // Middleware
 app.use(cors());
 app.use(express.json());
@@ -15,7 +15,7 @@ app.use(cookieParser()); // Add cookie-parser middleware
 
 // Connect to MongoDB
 mongoose
-  .connect('mongodb://localhost:27017/blockbuy', {
+  .connect(process.env.DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
