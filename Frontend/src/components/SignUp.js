@@ -4,6 +4,8 @@ import axios from 'axios';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+
   const [password, setPassword] = useState('');
   const [gender, setGender] = useState('');
   const [age, setAge] = useState('');
@@ -16,6 +18,7 @@ const SignUp = () => {
       const response = await axios.post(
         'http://localhost:5000/api/register',
         {
+          name,
           email,
           password,
           gender,
@@ -38,6 +41,22 @@ const SignUp = () => {
         </div>
         <h2 className="text-2xl font-bold text-center mb-6">Sign Up</h2>
         <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="name"
+            >
+              UserName
+            </label>
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+              required
+            />
+          </div>
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"

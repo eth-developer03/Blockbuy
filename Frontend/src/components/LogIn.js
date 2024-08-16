@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import block from '../assets/blockchain.png';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -81,12 +83,14 @@ const LoginPage = () => {
       </div>
       <div className="mt-8 text-center">
         <p className="text-sm text-gray-600">New to BlockBuy?</p>
-        <a
-          href="#"
+        <button
+          onClick={() => {
+            navigate('/signup');
+          }}
           className="mt-2 inline-block bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
           Create your BlockBuy account
-        </a>
+        </button>
       </div>
     </div>
   );

@@ -3,23 +3,26 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
-const User = require('./models/User');
-const verify = require('./verify');
+const User = require('./models/models');
+const verify = require('./middleware/verify');
 
 const app = express();
 require('dotenv').config();
 // Middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+  })
+);
 app.use(express.json());
-app.use(cookieParser()); // Add cookie-parser middleware
+app.use(cookieParser());
 
 // Connect to MongoDB
 mongoose
-  .connect(process.env.DB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-  })
+  .connect(process.env.DB_URL)
   .then(() => {
     console.log('MongoDB connected');
   })
@@ -27,10 +30,8 @@ mongoose
     console.log(err);
   });
 
-// Secret key for JWT
 const JWT_SECRET = 'your_jwt_secret_key';
 
-// Helper function to set a cookie
 const setCookie = (res, token) => {
   res.cookie('token', token, {
     httpOnly: true,
@@ -39,13 +40,16 @@ const setCookie = (res, token) => {
   });
 };
 
-// Register Route
 app.post('/api/register', async (req, res) => {
-  const { email, password } = req.body;
+  console.log('hi');
+
+  const { name, email, password, gender, age, phoneNumber } = req.body;
+  console.log(req.body);
 
   try {
     // Check if user already exists
     const existingUser = await User.findOne({ email });
+
     if (existingUser) {
       return res
         .status(400)
@@ -53,7 +57,16 @@ app.post('/api/register', async (req, res) => {
     }
 
     // Create new user
-    const newUser = new User({ email, password });
+    const newUser = new User({
+      name,
+      email,
+      password,
+      gender,
+      age,
+      phoneNumber,
+    });
+    console.log('the new user is ', newUser);
+
     await newUser.save();
 
     // Generate JWT
@@ -61,12 +74,16 @@ app.post('/api/register', async (req, res) => {
       expiresIn: '1h',
     });
 
+    newUser.jwt = token;
+    await newUser.save();
+
     // Set cookie
     setCookie(res, token);
 
     res.status(201).json({ message: 'User registered successfully', newUser });
   } catch (err) {
     res.status(500).json({ error: err.message });
+    console.log(err);
   }
 });
 
