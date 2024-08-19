@@ -16,6 +16,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
 
+        <ProtectedRoute path="/home" component={Home} />
+
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
