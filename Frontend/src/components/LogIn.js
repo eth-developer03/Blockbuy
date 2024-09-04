@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import block from '../assets/blockchain.png';
 import axios from 'axios';
+import Cookies from 'js-cookie';
+
 import { useNavigate } from 'react-router-dom';
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -19,6 +21,13 @@ const LoginPage = () => {
         { withCredentials: true }
       );
       console.log('User saved:', response.data);
+      if (response.status === 200) {
+        // Redirect to home page
+        Cookies.set('token', response.data.token, { path: '/' });
+
+        navigate('/');
+        console.log('navigated successfully');
+      }
     } catch (err) {
       console.error('Error saving user:', err);
     }

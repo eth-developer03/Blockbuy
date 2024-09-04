@@ -17,6 +17,7 @@ app.use(
     credentials: true,
   })
 );
+
 app.use(express.json());
 app.use(cookieParser());
 
@@ -30,19 +31,25 @@ mongoose
     console.log(err);
   });
 
-const JWT_SECRET = 'your_jwt_secret_key';
+const JWT_SECRET = process.env.SECRET;
 
 const setCookie = (res, token) => {
-  res.cookie('token', token, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production', // Set to true in production for HTTPS
-    maxAge: 3600000, // 1 hour
-  });
+  try {
+    res.cookie('token', token, {
+      httpOnly: false,
+      secure: process.env.NODE_ENV === 'production',
+      maxAge: 3600000, // 1 hour
+      path: '/',
+      sameSite: 'None',
+    });
+
+    console.log('Cookie set:', res.getHeader('Set-Cookie'));
+  } catch (e) {
+    console.log('error while setting the cookies', e);
+  }
 };
 
 app.post('/api/register', async (req, res) => {
-  console.log('hi');
-
   const { name, email, password, gender, age, phoneNumber } = req.body;
   console.log(req.body);
 
@@ -135,15 +142,35 @@ app.use((req, res, next) => {
 });
 
 // Protected Route
-app.get('/api/protected', (req, res) => {
-  res.json({
-    message: 'Protected data',
-    authData: req.authData,
-  });
-});
+// app.get('/api/protected', (req, res) => {
+//   const token = req.cookies.token;
+//   console.log('received tokens is ', token);
+
+//   if (!token) {
+//     return res
+//       .status(401)
+//       .json({ message: 'Access denied, no token provided' });
+//   }
+
+//   try {
+//     // Verify the token
+//     const decoded = jwt.verify(token, JWT_SECRET);
+//     return res
+//       .status(200)
+//       .json({ message: 'Protected data accessed', userId: decoded.userId });
+//   } catch (err) {
+//     return res.status(400).json({ message: 'Invalid token' });
+//   }
+// });
 
 // Logout Route
-app.post('/api/logout', (req, res) => {
+app.get('/api/logout', (req, res) => {
+  // res.clearCookie('token', {
+  //   httpOnly: true,
+  //   secure: process.env.NODE_ENV === 'production',
+  //   sameSite: 'Lax', // Adjust based on your needs
+  //   path: '/',
+  // });
   res.clearCookie('token');
   res.status(200).json({ message: 'Logged out successfully' });
 });

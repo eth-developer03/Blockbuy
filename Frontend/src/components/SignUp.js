@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import block from '../assets/blockchain.png';
 import axios from 'axios';
-
+import { useNavigate } from 'react-router-dom';
 const SignUp = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
 
@@ -28,6 +29,7 @@ const SignUp = () => {
         { withCredentials: true }
       );
       console.log('User registered:', response.data);
+      navigate('/');
     } catch (err) {
       console.error('Error registering user:', err);
     }
@@ -164,7 +166,7 @@ const SignUp = () => {
       <div className="mt-8 text-center">
         <p className="text-sm text-gray-600">Already have an account?</p>
         <a
-          href="#"
+          href="/login"
           className="mt-2 inline-block bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
           Sign In
