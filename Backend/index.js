@@ -165,13 +165,19 @@ app.use((req, res, next) => {
 
 // Logout Route
 app.get('/api/logout', (req, res) => {
-  // res.clearCookie('token', {
-  //   httpOnly: true,
-  //   secure: process.env.NODE_ENV === 'production',
-  //   sameSite: 'Lax', // Adjust based on your needs
-  //   path: '/',
-  // });
-  res.clearCookie('token');
+  res.clearCookie('token', {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'Lax', // Adjust based on your needs
+    path: '/',
+  });
+  res.clearCookie('token', {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'Lax', // Adjust based on your needs
+    path: '/',
+  });
+  // res.clearCookie('token');
   res.status(200).json({ message: 'Logged out successfully' });
 });
 

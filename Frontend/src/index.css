@@ -53,9 +53,24 @@ nav {
   align-items: center;
   background-color: var(--clr-bunker);
   justify-content: space-evenly;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
-
+/* .nav__controls {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  flex-direction: row;
+} */
+.nav__controls {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  /* align-items: center; Vertically center all items */
+  justify-content: space-between; /* Space out items evenly */
+  gap: 1rem; /* Optional: add space between items */
+  width: auto; /* Remove width: 100%, allow the content to take natural space */
+}
 .nav__brand {
   display: flex;
   justify-content: center;
@@ -133,6 +148,22 @@ nav {
 }
 
 .nav_signup {
+  background-color: var(--clr-orange);
+  color: var(--clr-black);
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+
+  font-family: 'Lalezar';
+  font-size: 1.25em;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: all 250ms ease;
+  margin-left: 4rem;
+}
+.nav_signin {
   background-color: var(--clr-orange);
   color: var(--clr-black);
   width: 100px;

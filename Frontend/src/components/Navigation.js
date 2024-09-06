@@ -26,13 +26,14 @@ const Navigation = ({ account, setAccount }) => {
         <div className="nav__brand">
           <h1>BlockBuy</h1>
         </div>
-        <div className="">
+        <div className="nav_controls">
           <input
             type="text"
             className="nav__search"
             value={inputvalue}
             onChange={handleValue}
           />
+
           {account ? (
             <button type="button" className="nav__connect">
               {account.slice(0, 6) + '...' + account.slice(38, 42)}
@@ -46,10 +47,20 @@ const Navigation = ({ account, setAccount }) => {
               Connect
             </button>
           )}
+
+          <button
+            className="nav_signin"
+            onClick={() => {
+              navigator('/login');
+            }}
+          >
+            SIGN IN
+          </button>
+
           <button
             className="nav_signup"
             onClick={() => {
-              navigator('/login');
+              navigator('/signup');
             }}
           >
             SIGN UP
