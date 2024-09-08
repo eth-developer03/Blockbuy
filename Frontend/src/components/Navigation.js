@@ -57,14 +57,14 @@ const Navigation = ({ account, setAccount }) => {
             SIGN IN
           </button>
 
-          <button
+          {/* <button
             className="nav_signup"
             onClick={() => {
               navigator('/signup');
             }}
           >
             SIGN UP
-          </button>
+          </button> */}
         </div>
       </nav>
       {/* <button className="nav_signup">SIGN UP</button> */}
