@@ -33,7 +33,6 @@ const Navigation = ({ account, setAccount }) => {
             value={inputvalue}
             onChange={handleValue}
           />
-
           {account ? (
             <button type="button" className="nav__connect">
               {account.slice(0, 6) + '...' + account.slice(38, 42)}

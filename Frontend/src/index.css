@@ -55,21 +55,20 @@ nav {
   justify-content: space-evenly;
   /* overflow-x: hidden; */
 }
-/* .nav__controls {
-  display: flex;
-  height: 100%;
-  width: 100%;
-  align-items: center;
-  flex-direction: row;
-} */
+
 .nav__controls {
   display: flex;
   height: 100%;
   width: 100%;
   /* align-items: center; Vertically center all items */
   justify-content: space-between; /* Space out items evenly */
-  gap: 1rem; /* Optional: add space between items */
-  width: auto; /* Remove width: 100%, allow the content to take natural space */
+  gap: 1rem;
+  width: auto;
+}
+
+.nav_controls input {
+  margin-right: 10em;
+  width: 20vw;
 }
 .nav__brand {
   display: flex;

@@ -124,60 +124,38 @@ app.post('/api/login', async (req, res) => {
 });
 
 // Middleware to check authentication
-app.use((req, res, next) => {
-  const token = req.cookies.token;
-
-  if (token) {
-    jwt.verify(token, JWT_SECRET, (err, authData) => {
-      if (err) {
-        res.sendStatus(403); // Forbidden
-      } else {
-        req.authData = authData;
-        next();
-      }
-    });
-  } else {
-    res.sendStatus(403); // Forbidden
-  }
-});
-
-// Protected Route
-// app.get('/api/protected', (req, res) => {
+// app.use((req, res, next) => {
 //   const token = req.cookies.token;
-//   console.log('received tokens is ', token);
 
-//   if (!token) {
-//     return res
-//       .status(401)
-//       .json({ message: 'Access denied, no token provided' });
-//   }
-
-//   try {
-//     // Verify the token
-//     const decoded = jwt.verify(token, JWT_SECRET);
-//     return res
-//       .status(200)
-//       .json({ message: 'Protected data accessed', userId: decoded.userId });
-//   } catch (err) {
-//     return res.status(400).json({ message: 'Invalid token' });
+//   if (token) {
+//     jwt.verify(token, JWT_SECRET, (err, authData) => {
+//       if (err) {
+//         res.sendStatus(403); // Forbidden
+//       } else {
+//         req.authData = authData;
+//         next();
+//       }
+//     });
+//   } else {
+//     res.sendStatus(403); // Forbidden
 //   }
 // });
 
+app.use(verify);
 // Logout Route
 app.get('/api/logout', (req, res) => {
   res.clearCookie('token', {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
-    sameSite: 'Lax', // Adjust based on your needs
+    sameSite: 'Lax',
     path: '/',
   });
   res.clearCookie('token', {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
-    sameSite: 'Lax', // Adjust based on your needs
+    sameSite: 'Lax',
     path: '/',
   });
-  // res.clearCookie('token');
   res.status(200).json({ message: 'Logged out successfully' });
 });
 
