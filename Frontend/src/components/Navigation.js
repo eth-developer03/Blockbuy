@@ -17,7 +17,6 @@ const Navigation = ({ account, setAccount }) => {
 
   const handleValue = (e) => {
     setvalue(e.target.value);
-    // console.log('value', inputvalue);
   };
 
   return (
@@ -66,8 +65,7 @@ const Navigation = ({ account, setAccount }) => {
           </button> */}
         </div>
       </nav>
-      {/* <button className="nav_signup">SIGN UP</button> */}
-      {/* <div className="nav__links"> */}
+
       <ul className="nav__links">
         <li>
           <a href="#Accessories">Accessories</a>

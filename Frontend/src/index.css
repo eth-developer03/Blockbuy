@@ -60,8 +60,7 @@ nav {
   display: flex;
   height: 100%;
   width: 100%;
-  /* align-items: center; Vertically center all items */
-  justify-content: space-between; /* Space out items evenly */
+  justify-content: space-between;
   gap: 1rem;
   width: auto;
 }
@@ -215,7 +214,6 @@ nav {
 
 .card:hover {
   box-shadow: 10px 15px 20px var(--clr-grey);
-  /* filter: drop-shadow(7px, 10px, 12px, black); */
 }
 
 .card__image {
@@ -262,7 +260,6 @@ nav {
   margin-top: 5px;
 }
 
-/* ------------------------------------------------------ */
 /* -- PRODUCT -- */
 
 .product {
